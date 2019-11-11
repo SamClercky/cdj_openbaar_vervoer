@@ -1,0 +1,4 @@
+NODE_ENV=development
+PORT=3000
+baudrate=9600
+serial_port=/dev/ttyACM0
