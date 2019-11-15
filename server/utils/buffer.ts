@@ -22,6 +22,17 @@ export class Buffer<T> {
         return value;
     }
 
+    getAll(): T[] {
+        const result: T[] = [];
+
+        for(let i = this._activeReadPointer; i < this._activeReadPointer+this._maxlength; i++) {
+            j = (i < this._maxlength)? i : this._maxlength - i;
+            result.push(j);
+        }
+
+        return result;
+    }
+
     private nextWritePointer(): number {
         this._activeWritePointer++;
 
