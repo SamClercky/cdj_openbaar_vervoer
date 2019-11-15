@@ -26,8 +26,8 @@ export class Buffer<T> {
         const result: T[] = [];
 
         for(let i = this._activeReadPointer; i < this._activeReadPointer+this._maxlength; i++) {
-            j = (i < this._maxlength)? i : this._maxlength - i;
-            result.push(this._buffer[i]);
+            let j = (i < this._maxlength)? i : this._maxlength - i;
+            result.push(this._buffer[j]);
         }
 
         return result;
