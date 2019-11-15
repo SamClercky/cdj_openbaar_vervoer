@@ -27,7 +27,7 @@ export class Buffer<T> {
 
         for(let i = this._activeReadPointer; i < this._activeReadPointer+this._maxlength; i++) {
             j = (i < this._maxlength)? i : this._maxlength - i;
-            result.push(j);
+            result.push(this._buffer[i]);
         }
 
         return result;
