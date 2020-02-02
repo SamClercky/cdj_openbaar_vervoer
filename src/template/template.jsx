@@ -7,7 +7,9 @@ import Navigatie from './navigatie';
 
 /**
  * Props:
- * children?: any
+ * children?: any,
+ * titel: string,
+ * geselecteerd: "Home" | "Kaart" | "Hulp" | "Over ons",
  */
 export default class Template extends React.Component {
 
@@ -31,13 +33,13 @@ export default class Template extends React.Component {
     return (
       <div className="template__wrapper">
           <Header
-            titel="CDJ"
+            titel={this.props.titel}
             navwilopen={this.onwilsluiten}
           />
           <Navigatie
             wilsluiten={this.onwilsluiten}
             isOpen={this.state.isNavOpen}
-            geselecteerd="Home"
+            geselecteerd={this.props.geselecteerd}
           />
           <main>
             {this.props.children}

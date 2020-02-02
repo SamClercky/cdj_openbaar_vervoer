@@ -6,10 +6,20 @@
 
 .navigatie__wrapper li {
     list-style: none;
+    padding: 0.5rem;
+}
+
+.navigatie__wrapper li:hover {
+    border-bottom: white solid 2px;
 }
 
 .navigatie__wrapper li.select {
     color: yellow;
+}
+
+.navigatie__wrapper li a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* GROOT scherm */
@@ -17,7 +27,7 @@
 
     .navigatie__wrapper {
         width: 100%;
-        height: 2.5rem;
+        height: 3rem;
         flex-direction: row;
     }
 

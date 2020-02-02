@@ -1,6 +1,7 @@
 // @ts-check
 import React from "react";
 import "./navigatie.css";
+import { Link } from "react-router-dom";
 
 
 /**
@@ -29,10 +30,21 @@ export default class Navigatie extends React.Component {
             <nav data-isopen={isOpen} className="navigatie__wrapper">
                 <button onClick={this.onSluit} className="navigatie__sluit">X</button>
                 <ul>
-                    <li className={(geselecteerd === "Home")? "select":""}>Home</li>
-                    <li className={(geselecteerd === "Kaart")? "select":""}>Kaart</li>
-                    <li className={(geselecteerd === "Hulp")? "select":""}>Hulp</li>
-                    <li className={(geselecteerd === "Over ons")? "select":""}>Over ons</li>
+                    <li className={(geselecteerd === "Home")? "select":""}>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li className={(geselecteerd === "Kaart")? "select":""}>
+                        <Link to="/pages/kaart">Kaart</Link>
+                    </li>
+                    <li className={(geselecteerd === "Hulp")? "select":""}>
+                        <Link to="/pages/hulp">Hulp</Link>
+                    </li>
+                    <li className={(geselecteerd === "Over ons")? "select":""}>
+                        <Link to="/pages/overons">Over ons</Link>
+                    </li>
+                    <li className={(geselecteerd === "Log")? "select":""}>
+                        <Link to="/pages/log">Log</Link>
+                    </li>
                 </ul>
             </nav>
         );
