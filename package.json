@@ -22,6 +22,7 @@
     "build_server": "tsc -p ./server/tsconfig.json",
     "watch_server": "tsc -w -p ./server/tsconfig.json",
     "test_server": "jest --config ./server/jest.config.js",
+    "monitor_server": "nodemon ./serverbuild/index.js",
     "start_website": "react-scripts start",
     "build_website": "react-scripts build",
     "test_website": "react-scripts test",

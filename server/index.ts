@@ -1,14 +1,17 @@
+// initiating peripherals
+import GpioHelper from "./gpio";
+
 require("./serial");
+GpioHelper.init();
 
 import express from "express";
 import path, { parse } from "path";
 import bodyparser from "body-parser";
 import EventManager, { EventData } from "./event_manager";
-import { SERVER_PORT, MSG_BUFFER, iMessage, IOMsg } from "./constants";
+import { SERVER_PORT, iMessage, IOMsg } from "./constants";
 import { createServer } from "http";
 import { Socket } from "socket.io";
 import { handleLastElements } from "./serverhandlers";
-import { resolveSrv } from "dns";
 
 const app = express();
 const http = createServer(app);
