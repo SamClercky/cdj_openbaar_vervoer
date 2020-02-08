@@ -1,8 +1,9 @@
 import EventManager from "./event_manager";
+import { SERIAL_BAUDRATE, SERIAL_PORT } from "./constants";
 
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
-const port = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
+const port = new SerialPort(SERIAL_PORT, { baudRate: SERIAL_BAUDRATE });
 const parser = port.pipe(new Readline({ delimiter: '\n' }));
 
 // Lezen van poort data
@@ -13,6 +14,9 @@ port.on("open", () => {
 parser.on('data', (data: string) =>{
   console.log('[*] Got word from arduino:', data);
   EventManager.fireEvent({
-    msg: data
+    eventdata: {
+      msg: data,
+      type: "message"
+    }
   });
 });

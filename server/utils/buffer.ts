@@ -9,6 +9,10 @@ export class Buffer<T> {
         this._buffer = [];
     }
 
+    get BUFFER_SIZE(): number {
+        return this._maxlength;
+    }
+
     add(item: T) {
         this._buffer.push(item);
         if (this._buffer.length == this._maxlength+1) {
@@ -27,6 +31,14 @@ export class Buffer<T> {
 
     getAll(): T[] {
         return [...this._buffer];
+    }
+    
+    getLastElements(amount=this._maxlength-1): T[] {
+        if (amount > this._maxlength)
+            throw new Error(
+                "Argument must be smaller or equal to " + this._maxlength
+            )
+        return this._buffer.slice(this._maxlength-amount);
     }
 
     getElementAtIndex(index: number): T {

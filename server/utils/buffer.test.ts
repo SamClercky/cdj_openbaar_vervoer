@@ -29,6 +29,30 @@ test("Add a element to a buffer (with overflow)", () => {
     ]);
 });
 
+test("getLastElement (with overflow)", () => {
+    const buffer = new Buffer<number>(5);
+    buffer.add(1);
+    buffer.add(2);
+    buffer.add(3);
+    buffer.add(4);
+    buffer.add(5);
+
+    expect(buffer.getLastElements(2)).toStrictEqual([
+        4, 5
+    ]);
+});
+
+test("getLastElement (with overflow)", () => {
+    const buffer = new Buffer<number>(5);
+    buffer.add(1);
+    buffer.add(2);
+    buffer.add(3);
+    buffer.add(4);
+    buffer.add(5);
+
+    expect(() => buffer.getLastElements(10)).toThrow(Error);
+});
+
 test("getNext should give next element to be read", () => {
     const buffer = new Buffer<number>(3);
     buffer.add(1);

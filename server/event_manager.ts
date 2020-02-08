@@ -1,16 +1,15 @@
-import { Buffer } from "./utils/buffer";
+import { iMessage } from "./constants";
 
 export interface EventData {
-    msg: string
+    eventdata: iMessage
 }
 
-export type EventListener = (msg: EventData) => void;
+export type EventListener = (data: EventData) => void;
 
 /**
  * Helper voor het rondsturen van berichten
  */
 export default class EventManager {
-    private static readonly _buffer: Buffer<any> = new Buffer(10);
     private static _listeners: EventListener[] = [];
 
     /**
