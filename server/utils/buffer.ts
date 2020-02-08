@@ -1,65 +1,69 @@
 export class Buffer<T> {
     private _maxlength = 0;
     private _buffer: T[] = [];
-    private _activeWritePointer = 0;
     private _activeReadPointer = 0;
 
     constructor(length = 0) {
-        if (length < 0) throw Error("Invalid argument");
+        if (length < 0) throw new Error("Invalid argument");
         this._maxlength = length;
-        this._buffer = new Array(length);
+        this._buffer = [];
+    }
+
+    get BUFFER_SIZE(): number {
+        return this._maxlength;
     }
 
     add(item: T) {
-        const pointer = this.nextWritePointer();
-        this._buffer[pointer] = item;
+        this._buffer.push(item);
+        if (this._buffer.length == this._maxlength+1) {
+            this._buffer.shift();
+        }
+        this._updateReadAddition();
     }
 
-    getNext(): T {
-        const value = this._buffer[this._activeReadPointer];
-        this.nextReadPointer();
-
-        return value;
+    getNext(): T | null {
+        if (this._updateReadPointer()) {
+            return this._buffer[this._activeReadPointer-1];
+        } else {
+            return null;
+        }
     }
 
     getAll(): T[] {
-        const result: T[] = [];
-
-        for(let i = this._activeReadPointer; i < this._activeReadPointer+this._maxlength; i++) {
-            let j = (i < this._maxlength)? i : this._maxlength - i;
-            result.push(this._buffer[j]);
-        }
-
-        return result;
-    }
-
-    private nextWritePointer(): number {
-        this._activeWritePointer++;
-
-        if (this._activeWritePointer == this._maxlength) {
-            this._activeWritePointer = 0;
-        }
-
-        // Fail safe
-        if (this.isPointerCollision()) this.nextReadPointer();
-
-        return this._activeWritePointer;
+        return [...this._buffer];
     }
     
-    private nextReadPointer(): number {
-        this._activeReadPointer++;
-
-        if (this._activeReadPointer == this._maxlength) {
-            this._activeReadPointer = 0;
-        }
-
-        // Fail safe
-        if (this.isPointerCollision()) this.nextWritePointer();
-
-        return this._activeReadPointer;
+    getLastElements(amount=this._maxlength-1): T[] {
+        if (amount > this._maxlength)
+            throw new Error(
+                "Argument must be smaller or equal to " + this._maxlength
+            )
+        return this._buffer.slice(this._maxlength-amount);
     }
 
-    private isPointerCollision(): boolean {
-        return this._activeReadPointer == this._activeWritePointer;
+    getElementAtIndex(index: number): T {
+        if (index >= this._maxlength) // check arguments
+            throw new Error(
+                "Invalid index, must be smaller than " + this._maxlength
+            );
+        return this._buffer[index];
+    }
+
+    private _updateReadAddition() {
+        this._activeReadPointer = Math.max(0, this._activeReadPointer-1);
+    }
+
+    /**
+     * Update _activeReadPointer if it is possible
+     * @returns {boolean} Success or failure of opperation
+     */
+    private _updateReadPointer(): boolean {
+        const temp = this._activeReadPointer + 1;
+        if (temp == this._maxlength+1) {
+            return false;
+        } else {
+            this._activeReadPointer = temp;
+            return true;
+        }
     }
 }
