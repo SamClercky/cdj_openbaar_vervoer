@@ -22,7 +22,7 @@ export default class GpioHelper {
     static init() {
         for (let v of vehicle_info) {
             const vehicleGPIO = new Gpio(v.pin, vehicle_config);
-            vehicleGPIO.on("interrupt", this.vehicleInterupt(v))
+            vehicleGPIO.on("interrupt", GpioHelper.vehicleInterupt(v))
             GpioHelper._gpio.push(vehicleGPIO);
         }
     }
