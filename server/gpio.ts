@@ -27,7 +27,7 @@ export default class GpioHelper {
         }
     }
 
-    private vehicleInterupt(vehicle: iVehicle) {
+    private static vehicleInterupt(vehicle: iVehicle) {
         return ((level: number) => {
             if (level == 1) { // enkel 1 keer fire'en
                 EventManager.fireEvent({
