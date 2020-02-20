@@ -1,4 +1,4 @@
-import { iMessage } from "./constants";
+import { iMessage, MSG_BUFFER } from "./constants";
 
 export interface EventData {
     eventdata: iMessage
@@ -33,6 +33,8 @@ export default class EventManager {
      * @param msg Te sturen bericht
      */
     static fireEvent(msg: EventData) {
+        console.info("[*] New data: " + msg.eventdata.msg);
+        MSG_BUFFER.add(msg.eventdata);
         this._listeners.forEach(l => {
             l(msg);
         })

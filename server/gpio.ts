@@ -13,7 +13,7 @@ const vehicle_config:
 
     mode: Gpio.INPUT,
     pullUpDown: Gpio.PUD_DOWN,
-    edge: Gpio.EITHER_EDGE
+    // edge: Gpio.EITHER_EDGE
 }
 
 export default class GpioHelper {

@@ -4,7 +4,7 @@ export class Buffer<T> {
     private _activeReadPointer = 0;
 
     constructor(length = 0) {
-        if (length < 0) throw new Error("Invalid argument");
+        if (length < 0) throw new Error("Length must be greater than 0");
         this._maxlength = length;
         this._buffer = [];
     }
@@ -38,7 +38,12 @@ export class Buffer<T> {
             throw new Error(
                 "Argument must be smaller or equal to " + this._maxlength
             )
-        return this._buffer.slice(this._maxlength-amount);
+        else if (amount < 0)
+            throw new Error(
+                "Argument must be greater than 0"
+            );
+
+        return this._buffer.slice(-amount);
     }
 
     getElementAtIndex(index: number): T {

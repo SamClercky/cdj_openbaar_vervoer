@@ -42,6 +42,17 @@ test("getLastElement (with overflow)", () => {
     ]);
 });
 
+test("getLastElement (with not anouth elements)", () => {
+    const buffer = new Buffer<number>(5);
+    buffer.add(1);
+    buffer.add(2);
+    buffer.add(3);
+
+    expect(buffer.getLastElements(2)).toStrictEqual([
+        2, 3
+    ]);
+});
+
 test("getLastElement (with overflow)", () => {
     const buffer = new Buffer<number>(5);
     buffer.add(1);

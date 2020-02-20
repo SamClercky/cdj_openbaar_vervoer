@@ -12,6 +12,10 @@ import OverOns from './overons/overons';
 import Hulp from './hulp/hulp';
 import Log from './log/log';
 
+import {sendSocket} from "./server/socket";
+
+sendSocket();
+
 export default class App extends React.Component {
   render() {
     return (
