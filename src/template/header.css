@@ -1,17 +1,9 @@
 .header__wrapper {
-    width: 100%;
-    padding: 0.5rem;
-    background: red;
-    display: flex;
-    flex-direction: row;
+    
 }
 
 .header__wrapper h1 {
-    display: block;
-    color: white;
-    width: fit-content;
-    margin-right: auto;
-    margin-left: auto;
+    
 }
 
 /*
@@ -19,16 +11,13 @@
  * tevoorschijn komt als het scherm klein is
  */
 .header__wrapper .header__navopen {
-    display: none;
+    
 }
 
 @media screen and (max-width: 900px) {
 
     .header__wrapper .header__navopen {
-        display: block;
-        color: white;
-        border: none;
-        background: none;
+        
     }
 
 }

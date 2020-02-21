@@ -26,25 +26,7 @@ const berichten = new Gebeurtenissen();
 export default class App extends React.Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/pages/kaart">
-            <Kaart />
-          </Route>
-          <Route path="/pages/overons">
-            <OverOns />
-          </Route>
-          <Route path="/pages/hulp">
-            <Hulp />
-          </Route>
-          <Route path="/pages/log">
-            <Log />
-          </Route>
-        </Switch>
-      </Router>
+      
     );
   }
 }

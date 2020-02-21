@@ -23,9 +23,7 @@ export default class Template extends React.Component {
 
     // state (en) = status (nl)
     // this (en) = dit (nl) ==> Alles met 'this.' heeft HIER te maken met Template 
-    this.state = {
-      isNavOpen: false
-    };
+    
 
     // We moeten alle functies waar we 'this.' gebruiken
     // binden, anders werkt het niet
@@ -37,9 +35,7 @@ export default class Template extends React.Component {
    * te openen
    */
   onwilsluiten() {
-    this.setState({
-      isNavOpen: !this.state.isNavOpen
-    });
+    
   }
 
   /**
@@ -47,21 +43,7 @@ export default class Template extends React.Component {
    */
   render() {
     return (
-      <div className="template__wrapper">
-          <Header
-            titel={this.props.titel}
-            navwilopen={this.onwilsluiten}
-          />
-          <Navigatie
-            wilsluiten={this.onwilsluiten}
-            isOpen={this.state.isNavOpen}
-            geselecteerd={this.props.geselecteerd}
-          />
-          <main>
-            {this.props.children}
-          </main>
-          <Footer />
-      </div>
+      
     );
   }
 }
