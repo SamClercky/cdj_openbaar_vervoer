@@ -19,6 +19,10 @@ const s = new Socket();
 // eslint-disable-next-line
 const berichten = new Gebeurtenissen();
 
+/**
+ * Dit is de starter classe. Hier begint ons programma.
+ * Hier vindt je alles terug over hoe je naar een nieuwe pagina kunt gaan
+ */
 export default class App extends React.Component {
   render() {
     return (

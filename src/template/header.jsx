@@ -11,10 +11,10 @@ export default class Header extends React.Component {
     constructor(props) {
         super(props);
 
-        this.onnavwilopen = this.onnavwilopen.bind(this);
+        this.onnavwilopen = this.onnavzalopen.bind(this);
     }
 
-    onnavwilopen(evt) {
+    onnavzalopen() {
         if(this.props.navwilopen) {
             this.props.navwilopen();
         }
@@ -25,7 +25,7 @@ export default class Header extends React.Component {
             <header className="header__wrapper">
                 <button
                     className="header__navopen"
-                    onClick={this.onnavwilopen}
+                    onClick={this.onnavzalopen}
                 >Open</button>
                 <h1>{this.props.titel}</h1>
             </header>

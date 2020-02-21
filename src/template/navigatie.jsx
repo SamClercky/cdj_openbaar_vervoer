@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 
 
 /**
+ * Zorgt voor de navigatiebalk
+ * De navigatiebalk is normaal altijd bovenaan het scherm
+ * maar gaat naar de zijkant bij gsm's (gemakkelijker in gebruik)
+ * 
  * Props:
  * geselecteerd: "Home" | "Kaart" | "Hulp" | "Over ons",
  * wilsluiten?: () => void,
@@ -17,12 +21,15 @@ export default class Navigatie extends React.Component {
         this.onSluit = this.onSluit.bind(this);
     }
 
-    onSluit(evt) {
+    onSluit() {
         if(this.props.wilsluiten) {
             this.props.wilsluiten();
         }
     }
 
+    /**
+     * Toont de navigatiebalk en selecteerd de pagina waar we nu op zitten
+     */
     render() {
         let geselecteerd = this.props.geselecteerd;
         let isOpen = (this.props.isOpen)? this.props.isOpen : false;
