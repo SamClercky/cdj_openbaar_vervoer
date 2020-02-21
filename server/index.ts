@@ -41,9 +41,12 @@ app.get("/newdata/:amount/", (req, res) => {
 
 // Websocket connections
 io.on("connection", (socket: Socket) => {
+    console.info("[*] New user connected to WS");
 
     // handle msg'es from clients
     socket.on(IOMsg.ASKLATEST, async (msg: string) => {
+        console.info("[*] User just asked for latest items");
+        
         const result = handleLastElements(parseInt(msg));
 
         if (result instanceof Error) {

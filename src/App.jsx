@@ -11,10 +11,13 @@ import Kaart from './kaart/kaart';
 import OverOns from './overons/overons';
 import Hulp from './hulp/hulp';
 import Log from './log/log';
+import Socket from './server/socket';
+import Gebeurtenissen from './gebeurtenissen';
 
-import {sendSocket} from "./server/socket";
-
-sendSocket();
+// eslint-disable-next-line
+const s = new Socket();
+// eslint-disable-next-line
+const berichten = new Gebeurtenissen();
 
 export default class App extends React.Component {
   render() {

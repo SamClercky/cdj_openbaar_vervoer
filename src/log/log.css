@@ -1,0 +1,29 @@
+.log__tabel {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    border: black solid 1px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    text-align: left;
+}
+
+.log__tabel tbody, .log__tabel thead {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.log__tabel tr {
+    padding: 1rem;
+    display: flex;
+    border: solid black 1px;
+}
+
+.log__index {
+    flex: 1;
+}
+
+.log__bericht {
+    flex: 5;
+}
