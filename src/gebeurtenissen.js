@@ -10,7 +10,7 @@ export default class Gebeurtenissen {
     nieuweGebeurtenis() {
         const status = store.getState();
 
-        if (status.alert === true) {
+        if (status.alert === true && status.messages.length > 0) {
             alert(status.messages[0].msg);
         }
     }
