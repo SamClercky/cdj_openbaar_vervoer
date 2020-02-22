@@ -1,9 +1,9 @@
 // @ts-check
 import React from 'react';
-import Header from './header';
-import Footer from './footer';
+// import Header from './header';
+// import Footer from './footer';
 import "./template.css"
-import Navigatie from './navigatie';
+// import Navigatie from './navigatie';
 
 /**
  * Deze klasse geeft ons een gemakkelijke manier om veel paginas te maken
@@ -43,7 +43,7 @@ export default class Template extends React.Component {
    */
   render() {
     return (
-      
+      <div></div>
     );
   }
 }

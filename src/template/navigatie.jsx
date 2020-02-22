@@ -1,7 +1,7 @@
 // @ts-check
 import React from "react";
 import "./navigatie.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 /**
@@ -31,7 +31,7 @@ export default class Navigatie extends React.Component {
     render() {
         
         return (
-            
+            <div></div>
         );
     }
 }
